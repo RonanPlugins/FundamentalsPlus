@@ -2,10 +2,6 @@
 
 Thank you for considering contributing to FundamentalsPlus! This document outlines some guidelines and suggestions to help make the contribution process as smooth as possible.
 
-## Code of Conduct
-
-This project has adopted a Code of Conduct that we expect project participants to adhere to. Please read the [full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
-
 ## Reporting Bugs
 
 If you have found a bug in the project, please create an issue in the [issue tracker](https://github.com/RonanPlugins/FundamentalsPlus/issues) with a clear and concise description of the problem. Be sure to include any relevant information or code snippets that may help us diagnose the issue.
