@@ -23,10 +23,10 @@ FundamentalsPlus is a plugin for Paper/Spigot, that provides essential commands 
 5. Reload the server or use the `/fplus reload` command to apply changes.
 
 ## Documentation
-Full documentation can be found on the [FundamentalsPlus wiki](https://github.com/FundamentalsPlus/FundamentalsPlus/wiki).
+Full documentation can be found on the [FundamentalsPlus wiki](https://github.com/RonanPlugins/FundamentalsPlus/wiki).
 
 ## Contributing
-We welcome contributions from the community! If you would like to contribute to FundamentalsPlus, please check out our [contribution guidelines](https://github.com/FundamentalsPlus/FundamentalsPlus/blob/main/CONTRIBUTING.md).
+We welcome contributions from the community! If you would like to contribute to FundamentalsPlus, please check out our [contribution guidelines](https://github.com/RonanPlugins/FundamentalsPlus/blob/master/CONTRIBUTING.md).
 
 ## License
-FundamentalsPlus is licensed under the [MIT License](https://github.com/FundamentalsPlus/FundamentalsPlus/blob/main/LICENSE).
+FundamentalsPlus is licensed under the [MIT License](https://github.com/RonanPlugins/FundamentalsPlus/blob/master/LICENSE).
