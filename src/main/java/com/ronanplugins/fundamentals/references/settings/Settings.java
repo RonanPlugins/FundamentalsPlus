@@ -1,5 +1,7 @@
-package com.ronanplugins.references.settings;
+package com.ronanplugins.fundamentals.references.settings;
 
+import com.ronanplugins.fundamentals.FundamentalsPlus;
+import com.ronanplugins.fundamentals.references.file.FileOther;
 import lombok.Getter;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public class Settings {
     @Getter private List<String> featureList;
 
     public void load() { //Load Settings
-        FileOther.FILETYPE config = FileOther.FILETYPE.CONFIG;
+        FileOther.FILETYPE config = FundamentalsPlus.getInstance().getFiles().getType(FileOther.FILETYPE.CONFIG);
         debug = config.getBoolean("Settings.Debugger");
         featureEnabled = config.getBoolean("Settings.Feature.Enabled");
         featureMessage = config.getString("Settings.Feature.Message");

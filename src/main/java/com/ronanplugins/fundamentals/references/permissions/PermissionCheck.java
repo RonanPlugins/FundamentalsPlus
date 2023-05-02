@@ -1,6 +1,6 @@
-package com.ronanplugins.references.permissions;
+package com.ronanplugins.fundamentals.references.permissions;
 
-import com.ronanplugins.FundamentalsPlus;
+import com.ronanplugins.fundamentals.FundamentalsPlus;
 import org.bukkit.command.CommandSender;
 
 public interface PermissionCheck {
@@ -9,15 +9,15 @@ public interface PermissionCheck {
         return "fundamentals.";
     }
 
-    default boolean check(CommandSender sendi) {
+    default PermissionResult check(CommandSender sendi) {
         // You can replace the names here with the developers' names or remove this condition if not needed
         if (isDev())
-            return sendi.getName().equalsIgnoreCase("YourName");
-        return FundamentalsPlus.getInstance().getPerms().checkPerm(getNode(), sendi);
+            return new PermissionResult(null, sendi.getName().equalsIgnoreCase("YourName"));
+        return new PermissionResult(getNode(), FundamentalsPlus.getInstance().getPerms().checkPerm(getNode(), sendi));
     }
 
-    static boolean check(CommandSender sendi, String check) {
-        return FundamentalsPlus.getInstance().getPerms().checkPerm(check, sendi);
+    static PermissionResult check(CommandSender sendi, String check) {
+        return new PermissionResult(check, FundamentalsPlus.getInstance().getPerms().checkPerm(check, sendi));
     }
 
     // Add more permission-related methods here if needed

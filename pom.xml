@@ -19,6 +19,16 @@
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
+        <!-- PlaceholderAPI Repo -->
+        <repository>
+            <id>placeholderapi</id>
+            <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <!-- Vault Repo -->
+        <repository>
+            <id>vault-repo</id>
+            <url>http://nexus.hc.to/content/repositories/pub_releases</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -33,6 +43,20 @@
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>
             <scope>compile</scope>
+        </dependency>
+        <!-- PlaceholderAPI Support (Added in 3.4.5)-->
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.11.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Vault -->
+        <dependency>
+            <groupId>net.milkbowl.vault</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.7</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

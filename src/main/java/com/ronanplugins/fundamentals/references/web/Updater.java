@@ -1,6 +1,6 @@
-package com.ronanplugins.references.web;
+package com.ronanplugins.fundamentals.references.web;
 
-import com.ronanplugins.FundamentalsPlus;
+import com.ronanplugins.fundamentals.FundamentalsPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 

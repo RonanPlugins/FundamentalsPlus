@@ -1,7 +1,6 @@
-package com.ronanplugins.player.commands;
+package com.ronanplugins.fundamentals.player.commands;
 
-import com.ronanplugins.references.permissions.PermissionCheck;
-import com.ronanplugins.references.permissions.PermissionNode;
+import com.ronanplugins.fundamentals.references.permissions.PermissionNode;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 

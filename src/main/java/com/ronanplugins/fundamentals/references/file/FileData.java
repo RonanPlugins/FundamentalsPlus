@@ -1,4 +1,4 @@
-package com.ronanplugins.references.file;
+package com.ronanplugins.fundamentals.references.file;
 
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;

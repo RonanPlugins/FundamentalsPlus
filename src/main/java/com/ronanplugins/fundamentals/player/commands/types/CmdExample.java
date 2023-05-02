@@ -1,7 +1,7 @@
-package com.ronanplugins.player.commands.types;
+package com.ronanplugins.fundamentals.player.commands.types;
 
-import com.ronanplugins.player.commands.FundamentalsCommand;
-import com.ronanplugins.references.permissions.PermissionNode;
+import com.ronanplugins.fundamentals.references.permissions.PermissionNode;
+import com.ronanplugins.fundamentals.player.commands.FundamentalsCommand;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,7 +1,7 @@
-package com.ronanplugins.player.commands;
+package com.ronanplugins.fundamentals.player.commands;
 
 
-import com.ronanplugins.player.commands.types.CmdExample;
+import com.ronanplugins.fundamentals.player.commands.types.CmdExample;
 
 public enum FundamentalsCommandType {
     EXAMPLE(new CmdExample()),

@@ -1,0 +1,21 @@
+main: com.ronanplugins.fundamentals.FundamentalsPlus
+version: ${project.version}
+name: FundamentalsPlus
+authors:
+  - RonanCraft
+  - kristofer
+folia-supported: false
+softdepend:
+  - Vault
+  - PlaceholderAPI
+api-version: '1.13'
+
+commands:
+  fundamentals:
+    aliases: [fp, fplus]
+    description: Fundamentals core command
+
+permissions:
+  fundamentals.use:
+    description: use plugin
+    default: op
