@@ -29,4 +29,4 @@ Full documentation can be found on the [FundamentalsPlus wiki](https://github.co
 We welcome contributions from the community! If you would like to contribute to FundamentalsPlus, please check out our [contribution guidelines](https://github.com/RonanPlugins/FundamentalsPlus/blob/master/CONTRIBUTING.md).
 
 ## License
-FundamentalsPlus is licensed under the [MIT License](https://github.com/RonanPlugins/FundamentalsPlus/blob/master/LICENSE).
+FundamentalsPlus is licensed under the [MPL 2.0 License](https://github.com/RonanPlugins/FundamentalsPlus/blob/master/LICENSE).
