@@ -1,7 +1,6 @@
 package com.ronanplugins.fundamentals;
 
 import com.ronanplugins.fundamentals.player.commands.Commands;
-import com.ronanplugins.fundamentals.player.commands.FundamentalsCommand;
 import com.ronanplugins.fundamentals.references.depends.DepPlaceholderAPI;
 import com.ronanplugins.fundamentals.references.file.Files;
 import com.ronanplugins.fundamentals.references.permissions.Permissions;
@@ -53,9 +52,7 @@ public class FundamentalsPlus extends JavaPlugin {
         return true;
     }
 
-    public static FundamentalsPlus getInstance() {
-        return instance;
-    }
+    public static FundamentalsPlus getInstance() { return instance; }
 
     private void loadConfigurations() {
         // Load your configurations here
