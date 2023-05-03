@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-// alias tp
+// alias /tp
 public class Teleport implements FundamentalsCommand {
 
     public void execute(CommandSender sender, String label, String[] args) {
