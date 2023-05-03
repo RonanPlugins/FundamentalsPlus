@@ -1,25 +1,11 @@
 package com.ronanplugins.fundamentals.references.messages;
 
-import com.ronanplugins.fundamentals.FundamentalsPlus;
-import com.ronanplugins.fundamentals.references.file.FileData;
 import org.bukkit.command.CommandSender;
 
 import java.util.HashMap;
 import java.util.List;
 
 public enum MessagesCore {
-
-    SUCCESS_PAID("Success.Paid"),
-    SUCCESS_BYPASS("Success.Bypass"),
-    SUCCESS_LOADING("Success.Loading"),
-    SUCCESS_TELEPORT("Success.Teleport"),
-    FAILED_NOTSAFE("Failed.NotSafe"),
-    FAILED_PRICE("Failed.Price"),
-    FAILED_HUNGER("Failed.Hunger"),
-    OTHER_NOTSAFE("Other.NotSafe"),
-    OTHER_SUCCESS("Other.Success"),
-    OTHER_BIOME("Other.Biome"),
-    NOTEXIST("NotExist"),
     RELOAD("Reload"),
     NOPERMISSION("NoPermission.Basic"),
     NOPERMISSION_WORLD("NoPermission.World"),
@@ -35,6 +21,28 @@ public enum MessagesCore {
     EDIT_ERROR("Edit.Error"),
     EDIT_SET("Edit.Set"),
     EDIT_REMOVE("Edit.Remove"),
+
+      //////////////////////
+     //  TELEPORTATION
+    //////////////////
+
+    TELEPORT_SUCCESS_PAID("Teleportation.Success.Paid"),
+    TELEPORT_SUCCESS_BYPASS("Teleportation.Success.Bypass"),
+    TELEPORT_SUCCESS_LOADING("Teleportation.Success.Loading"),
+    TELEPORT_SUCCESS("Teleportation.Success"),
+    TELEPORT_TO_PLAYER_SUCCESS("Teleportation.ToPlayer.Success"),
+    TELEPORT_PLAYER_NOT_FOUND("Teleportation.Failed.PlayerNotFound"),
+    TELEPORT_FAILED_NOT_SAFE("Teleportation.Failed.NotSafe"),
+    TELEPORT_FAILED_PRICE("Teleportation.Failed.Price"),
+    TELEPORT_FAILED_HUNGER("Teleportation.Failed.Hunger"),
+    TELEPORT_OTHER_NOT_SAFE("Teleportation.Other.NotSafe"),
+    TELEPORT_OTHER_SUCCESS("Teleportation.Other.Success"),
+    TELEPORT_DOES_NOT_EXIST("Teleportation.DoesNotExist"),
+    INVALID_ARGUMENTS("Teleportation.InvalidArguments"),
+    INVALID_COORDINATES_FORMAT("Teleportation.InvalidCoordinatesFormat"),
+    TELEPORTATION_NOT_ALLOWED_WORLD("Teleportation.WorldNotAllowed"),
+    TELEPORTATION_NOT_ALLOWED_COORDINATES("Teleportation.CoordinatesNotAllowed"),
+    TELEPORTATION_FAILED("Teleportation.Failed"),
     ;
 
     final String section;

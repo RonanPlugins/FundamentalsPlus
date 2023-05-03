@@ -5,7 +5,11 @@ import lombok.Getter;
 public enum PermissionNode implements PermissionCheck {
     // Add your permission nodes here
     USE("use"),
-    EXAMPLE_PERMISSION("example.permission");
+    EXAMPLE_PERMISSION("example.permission"),
+
+//    Teleportation
+    TELEPORT_USE("teleport.use");
+
 
     @Getter private final String node;
 

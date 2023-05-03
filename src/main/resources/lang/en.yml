@@ -1,2 +1,22 @@
 Messages:
   Prefix: '&7[&6Fundamentals&7] '
+  Teleportation:
+    Success:
+      Paid: '&aYou have successfully teleported and paid %cost%.'
+      Bypass: '&aTeleportation successful, bypassed the cost.'
+      Loading: '&aTeleporting to your destination, please wait...'
+      ToPlayer: '&aYou have been teleported to %player%.'
+      Other: '&aYou have teleported %player% to %destination%.'
+    Failed:
+      PlayerNotFound: '&cThe specified player %player% could not be found.'
+      NotSafe: '&cTeleportation failed, destination is not safe.'
+      Price: '&cYou do not have enough money to teleport.'
+      Hunger: '&cYou are too hungry to teleport.'
+    Other:
+      NotSafe: '&cTeleportation failed, the other player''s location is not safe.'
+      Success: '&aYou have successfully teleported %player% to %destination%.'
+    DoesNotExist: '&cThe specified teleport destination does not exist.'
+    InvalidArguments: '&cInvalid arguments. Usage: /tp [player] <targetPlayer|x> [y] [z]'
+    InvalidCoordinatesFormat: '&cInvalid coordinates format. Usage: /tp [player] <targetPlayer|x> [y] [z]'
+    WorldNotAllowed: '&cTeleportation is not allowed in this world.'
+    CoordinatesNotAllowed: '&cTeleportation to these coordinates is not allowed.'
