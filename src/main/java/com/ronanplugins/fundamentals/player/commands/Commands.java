@@ -3,8 +3,6 @@ package com.ronanplugins.fundamentals.player.commands;
 import com.ronanplugins.fundamentals.FundamentalsPlus;
 import com.ronanplugins.fundamentals.references.messages.MessagesCore;
 import com.ronanplugins.fundamentals.references.permissions.PermissionNode;
-import com.ronanplugins.player.commands.types.*;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
