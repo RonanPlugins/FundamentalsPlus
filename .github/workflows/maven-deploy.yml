@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-    tags:
-      - 'ALPHA-*'
-      - 'BETA-*'
-      - 'v*'
-      - 'ALPHA-*[0-9]-[0-9]*'
-      - 'BETA-*[0-9]-[0-9]*'
-      - 'v*[0-9]-[0-9]*'
+#    tags:
+#      - 'ALPHA-*'
+#      - 'BETA-*'
+#      - 'v*'
+#      - 'ALPHA-*[0-9]-[0-9]*'
+#      - 'BETA-*[0-9]-[0-9]*'
+#      - 'v*[0-9]-[0-9]*'
 
 jobs:
   build_and_deploy:
