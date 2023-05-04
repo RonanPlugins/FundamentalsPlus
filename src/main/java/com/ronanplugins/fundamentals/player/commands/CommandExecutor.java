@@ -8,36 +8,27 @@ import org.bukkit.command.CommandSender;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Commands {
-
-    private final FundamentalsPlus plugin;
-    private final List<FundamentalsCommand> commands = new ArrayList<>();
-
-    public Commands(FundamentalsPlus plugin) {
-        this.plugin = plugin;
-    }
+public class CommandExecutor {
 
     public void load() {
-        commands.clear();
-        for (FundamentalsCommandType cmd : FundamentalsCommandType.values()) {
-            registerCommand(cmd.getCmd(), false);
+        for (CommandList cmd : CommandList.values()) {
+            registerCommand(cmd.getCmd());
         }
     }
 
-    private void registerCommand(FundamentalsCommand cmd, boolean forced) {
-        if (!cmd.isDebugOnly() || plugin.getSettings().isDebug() || forced) {
-            commands.add(cmd);
-        }
+    private void registerCommand(FunCommand cmd) {
+        if (cmd instanceof FunCommandRegisterable)
+            FundamentalsPlus.getInstance().registerCommands((FunCommandRegisterable) cmd);
     }
 
     public void commandExecuted(CommandSender sendi, String label, String[] args) {
         if (PermissionNode.USE.check(sendi).isPassed()) {
             if (args != null && args.length > 0) {
-                for (FundamentalsCommand cmd : commands) {
-                    if (cmd.getName().equalsIgnoreCase(args[0])) {
-                        if (cmd.permission().check(sendi).isPassed()) {
+                for (CommandList cmd : CommandList.values()) {
+                    if (!(cmd.getCmd() instanceof FunCommandRegisterable) && cmd.name().equalsIgnoreCase(args[0])) {
+                        if (cmd.getCmd().permission().check(sendi).isPassed()) {
                             //FundamentalsPlus.debug(sendi.getName() + " executed: /" + label + " " + String.join(" ", args));
-                            cmd.execute(sendi, label, args);
+                            cmd.getCmd().run(sendi, label, args);
                         } else
                             MessagesCore.NOPERMISSION.send(sendi, cmd);
                         return;
@@ -55,19 +46,19 @@ public class Commands {
             MessagesCore.NOPERMISSION.send(sendi, PermissionNode.USE);
     }
 
-    public List<String> onTabComplete(CommandSender sendi, String[] args) {
+    public List<String> onTabComplete(CommandSender sendi, String label, String[] args) {
         List<String> list = new ArrayList<>();
         if (args.length == 1) {
-            for (FundamentalsCommand cmd : commands) {
-                if (cmd.getName().toLowerCase().startsWith(args[0].toLowerCase()))
-                    if (cmd.permission().check(sendi).isPassed())
-                        list.add(cmd.getName().toLowerCase());
+            for (CommandList cmd : CommandList.values()) {
+                if (!(cmd.getCmd() instanceof FunCommandRegisterable) && cmd.name().toLowerCase().startsWith(args[0].toLowerCase()))
+                    if (cmd.getCmd().permission().check(sendi).isPassed())
+                        list.add(cmd.name().toLowerCase());
             }
         } else if (args.length > 1) {
-            for (FundamentalsCommand cmd : commands) {
-                if (cmd.getName().equalsIgnoreCase(args[0]))
-                    if (cmd.permission().check(sendi).isPassed()) {
-                        List<String> _cmdlist = cmd.tabComplete(sendi, args);
+            for (CommandList cmd : CommandList.values()) {
+                if (!(cmd.getCmd() instanceof FunCommandRegisterable) && cmd.name().equalsIgnoreCase(args[0]))
+                    if (cmd.getCmd().permission().check(sendi).isPassed()) {
+                        List<String> _cmdlist = cmd.getCmd().tab(sendi, label, args);
                         if (_cmdlist != null)
                             list.addAll(_cmdlist);
                     }

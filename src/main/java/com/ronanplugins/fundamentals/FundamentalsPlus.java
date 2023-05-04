@@ -1,6 +1,7 @@
 package com.ronanplugins.fundamentals;
 
-import com.ronanplugins.fundamentals.player.commands.Commands;
+import com.ronanplugins.fundamentals.player.commands.FunCommandRegisterable;
+import com.ronanplugins.fundamentals.player.commands.CommandExecutor;
 import com.ronanplugins.fundamentals.references.depends.DepPlaceholderAPI;
 import com.ronanplugins.fundamentals.references.file.Files;
 import com.ronanplugins.fundamentals.references.permissions.Permissions;
@@ -9,17 +10,25 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.SimpleCommandMap;
+import org.bukkit.plugin.SimplePluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
 
 public class FundamentalsPlus extends JavaPlugin {
     private static FundamentalsPlus instance;
     @Getter private final Permissions perms = new Permissions();
     @Getter private final Files files = new Files();
     @Getter private final Settings settings = new Settings();
-    @Getter private final Commands commands = new Commands(this);
+    @Getter private final CommandExecutor commandExecutor = new CommandExecutor();
     //Booleans
     @Getter private boolean PlaceholderAPI;
+    //Commands
+    private static SimpleCommandMap scm;
+    private SimplePluginManager spm;
 
     @Override
     public void onEnable() {
@@ -48,7 +57,7 @@ public class FundamentalsPlus extends JavaPlugin {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sendi, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
-        commands.commandExecuted(sendi, label, args);
+        commandExecutor.commandExecuted(sendi, label, args);
         return true;
     }
 
@@ -59,6 +68,31 @@ public class FundamentalsPlus extends JavaPlugin {
         files.loadAll();
         perms.register();
         settings.load();
-        commands.load();
+        commandExecutor.load();
+    }
+
+    //COMMANDS
+    public void registerCommands(FunCommandRegisterable... commands) {
+        Arrays.stream(commands).forEach(command -> scm.register(getPluginMeta().getName(), command));//Register the plugin
+    }
+
+    private void setupSimpleCommandMap() {
+        spm = (SimplePluginManager) this.getServer().getPluginManager();
+        Field f = null;
+        try {
+            f = SimplePluginManager.class.getDeclaredField("commandMap");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        f.setAccessible(true);
+        try {
+            scm = (SimpleCommandMap) f.get(spm);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static SimpleCommandMap getCommandMap() {
+        return scm;
     }
 }

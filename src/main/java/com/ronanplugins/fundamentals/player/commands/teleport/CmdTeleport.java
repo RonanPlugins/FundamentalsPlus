@@ -1,6 +1,6 @@
-package com.ronanplugins.fundamentals.player.commands.types;
+package com.ronanplugins.fundamentals.player.commands.teleport;
 
-import com.ronanplugins.fundamentals.player.commands.FundamentalsCommand;
+import com.ronanplugins.fundamentals.player.commands.FunCommandRegisterable;
 import com.ronanplugins.fundamentals.references.messages.MessagesCore;
 import com.ronanplugins.fundamentals.references.permissions.PermissionNode;
 import org.bukkit.Bukkit;
@@ -14,9 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 // alias /tp
-public class Teleport implements FundamentalsCommand {
+public class CmdTeleport extends FunCommandRegisterable {
 
-    public void execute(CommandSender sender, String label, String[] args) {
+    public CmdTeleport() {
+        super("teleport", "tp", "telepor");
+    }
+
+    @Override
+    public void run(CommandSender sender, String label, String[] args) {
         if (!(sender instanceof Player player)) {
             MessagesCore.TELEPORTATION_FAILED.send(sender);
             return;
@@ -72,9 +77,8 @@ public class Teleport implements FundamentalsCommand {
         }
     }
 
-
     @Override
-    public List<String> tabComplete(CommandSender sender, String[] args) {
+    public List<String> tab(CommandSender sendi, String label, String[] args) {
         // Return possible tab completions for this command
         List<String> suggestions = new ArrayList<>();
 
@@ -97,7 +101,12 @@ public class Teleport implements FundamentalsCommand {
     }
 
     @Override
-    public String getName() {
+    public String name() {
+        return super.getName();
+    }
+
+    @Override
+    public @NotNull String getName() {
         return "teleport";
     }
 }
