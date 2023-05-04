@@ -17,7 +17,7 @@ import java.util.List;
 public class CmdTeleport extends FunCommandRegisterable {
 
     public CmdTeleport() {
-        super("teleport", "tp", "telepor");
+        super("teleport", "tp");
     }
 
     @Override

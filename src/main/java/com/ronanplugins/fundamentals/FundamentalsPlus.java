@@ -65,6 +65,7 @@ public class FundamentalsPlus extends JavaPlugin {
 
     private void loadConfigurations() {
         // Load your configurations here
+        setupSimpleCommandMap();
         files.loadAll();
         perms.register();
         settings.load();

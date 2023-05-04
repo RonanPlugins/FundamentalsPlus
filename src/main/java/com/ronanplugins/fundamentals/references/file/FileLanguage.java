@@ -57,23 +57,23 @@ public class FileLanguage implements FileData {
     }
 
     private final String[] defaultLangs = {
-            "chs.yml", //Chinese Simplified (OasisAkari)
-            "cht.yml", //Chinese (OasisAkari & kamiya10)
-            "cs.yml", //Czech (Lewisparkle)
-            "da.yml", //Danish (Janbchr)
-            "de.yml", //German (IBimsDaNico#8690)
+            //"chs.yml", //Chinese Simplified (OasisAkari)
+            //"cht.yml", //Chinese (OasisAkari & kamiya10)
+            //"cs.yml", //Czech (Lewisparkle)
+            //"da.yml", //Danish (Janbchr)
+            //"de.yml", //German (IBimsDaNico#8690)
             "en.yml",
-            "es.yml", //Spanish (emgv)
-            "fr.yml", //French (At0micA55 & Mrflo67)
-            "he.yml", //Hebrew (thefourcraft)
-            "it.yml", //Italian (iVillager)
-            "ja.yml", //Japanese (ViaSnake)
-            "nl.yml", //Dutch (QuestalNetwork) (GeleVla)
-            "no.yml", //Norwegian (Fraithor & Janbchr)
-            "pl.yml", //Polish (Farum & TeksuSiK)
-            "ro.yml", //Romanian (GamingXBlood)
-            "ru.yml", //Russian (Logan)
-            "vi.yml", //Vietnamese (VoChiDanh#0862)
+            //"es.yml", //Spanish (emgv)
+            //"fr.yml", //French (At0micA55 & Mrflo67)
+            //"he.yml", //Hebrew (thefourcraft)
+            //"it.yml", //Italian (iVillager)
+            //"ja.yml", //Japanese (ViaSnake)
+            //"nl.yml", //Dutch (QuestalNetwork) (GeleVla)
+            //"no.yml", //Norwegian (Fraithor & Janbchr)
+            //"pl.yml", //Polish (Farum & TeksuSiK)
+            //"ro.yml", //Romanian (GamingXBlood)
+            //"ru.yml", //Russian (Logan)
+            //"vi.yml", //Vietnamese (VoChiDanh#0862)
     };
 
     private void generateDefaults() {

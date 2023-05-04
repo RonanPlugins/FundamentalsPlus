@@ -22,11 +22,11 @@ public class FileOther {
 
     public enum FILETYPE implements FileData {
         CONFIG("config"),
-        ECO("economy"),
-        SIGNS("signs"),
-        EFFECTS("effects"),
-        LOCATIONS("locations"),
-        PLACEHOLDERS("placeholders")
+        //ECO("economy"),
+        //SIGNS("signs"),
+        //EFFECTS("effects"),
+        //LOCATIONS("locations"),
+        //PLACEHOLDERS("placeholders")
         ;
 
         private final String fileName;
