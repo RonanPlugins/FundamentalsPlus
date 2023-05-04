@@ -31,6 +31,7 @@ public enum MessagesCore {
     TELEPORT_SUCCESS_LOADING("Teleportation.Success.Loading"),
     TELEPORT_SUCCESS("Teleportation.Success"),
     TELEPORT_TO_PLAYER_SUCCESS("Teleportation.ToPlayer.Success"),
+    TELEPORT_FAILED_CONSOLE("Teleportation.Failed.Console"),
     TELEPORT_PLAYER_NOT_FOUND("Teleportation.Failed.PlayerNotFound"),
     TELEPORT_FAILED_NOT_SAFE("Teleportation.Failed.NotSafe"),
     TELEPORT_FAILED_PRICE("Teleportation.Failed.Price"),
@@ -42,7 +43,6 @@ public enum MessagesCore {
     INVALID_COORDINATES_FORMAT("Teleportation.InvalidCoordinatesFormat"),
     TELEPORTATION_NOT_ALLOWED_WORLD("Teleportation.WorldNotAllowed"),
     TELEPORTATION_NOT_ALLOWED_COORDINATES("Teleportation.CoordinatesNotAllowed"),
-    TELEPORTATION_FAILED("Teleportation.Failed"),
     ;
 
     final String section;

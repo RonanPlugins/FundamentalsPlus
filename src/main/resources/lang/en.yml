@@ -8,6 +8,7 @@ Messages:
       ToPlayer: '&aYou have been teleported to %player%.'
       Other: '&aYou have teleported %player% to %destination%.'
     Failed:
+      Console: '&cConsole cannot run this command!'
       PlayerNotFound: '&cThe specified player %player% could not be found.'
       NotSafe: '&cTeleportation failed, destination is not safe.'
       Price: '&cYou do not have enough money to teleport.'
