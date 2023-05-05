@@ -4,6 +4,7 @@ name: FundamentalsPlus
 authors:
   - RonanCraft
   - kristoffer
+  - ARR4NN
 folia-supported: false
 softdepend:
   - Vault
