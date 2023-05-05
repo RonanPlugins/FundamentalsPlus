@@ -1,5 +1,6 @@
 Messages:
   Prefix: '&7[&6Fundamentals&7] '
+  Invalid: '&cInvalid argument please use &f`&7/%command% help&f`'
   Teleportation:
     Success:
       Paid: '&aYou have successfully teleported and paid %cost%.'

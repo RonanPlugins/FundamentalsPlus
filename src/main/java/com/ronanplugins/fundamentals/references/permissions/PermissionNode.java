@@ -4,11 +4,13 @@ import lombok.Getter;
 
 public enum PermissionNode implements PermissionCheck {
     // Add your permission nodes here
-    USE("use"),
-    EXAMPLE_PERMISSION("example.permission"),
-
-//    Teleportation
-    TELEPORT_USE("teleport.use");
+    //Core commands (ie: /fp <sub-cmd>)
+    CORE_USE("use"),
+    //Teleportation
+    COMMAND_TELEPORT("command.teleport"),
+    //Fly
+    COMMAND_FLY("command.fly"),
+    ;
 
 
     @Getter private final String node;

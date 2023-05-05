@@ -1,22 +1,27 @@
 package com.ronanplugins.fundamentals;
 
+import com.ronanplugins.fundamentals.player.commands.CommandList;
 import com.ronanplugins.fundamentals.player.commands.FunCommandRegisterable;
 import com.ronanplugins.fundamentals.player.commands.CommandExecutor;
 import com.ronanplugins.fundamentals.references.depends.DepPlaceholderAPI;
 import com.ronanplugins.fundamentals.references.file.Files;
+import com.ronanplugins.fundamentals.references.messages.MessagesCore;
 import com.ronanplugins.fundamentals.references.permissions.Permissions;
 import com.ronanplugins.fundamentals.references.settings.Settings;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.plugin.SimplePluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.List;
 
 public class FundamentalsPlus extends JavaPlugin {
     private static FundamentalsPlus instance;
@@ -26,9 +31,6 @@ public class FundamentalsPlus extends JavaPlugin {
     @Getter private final CommandExecutor commandExecutor = new CommandExecutor();
     //Booleans
     @Getter private boolean PlaceholderAPI;
-    //Commands
-    private static SimpleCommandMap scm;
-    private SimplePluginManager spm;
 
     @Override
     public void onEnable() {
@@ -57,15 +59,19 @@ public class FundamentalsPlus extends JavaPlugin {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sendi, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
-        commandExecutor.commandExecuted(sendi, label, args);
+        CommandList.FUNDAMENTALS.getCmd().run(sendi, label, args);
         return true;
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender sendi, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        return CommandList.FUNDAMENTALS.getCmd().tab(sendi, label, args);
     }
 
     public static FundamentalsPlus getInstance() { return instance; }
 
     private void loadConfigurations() {
         // Load your configurations here
-        setupSimpleCommandMap();
         files.loadAll();
         perms.register();
         settings.load();
@@ -74,26 +80,19 @@ public class FundamentalsPlus extends JavaPlugin {
 
     //COMMANDS
     public void registerCommands(FunCommandRegisterable... commands) {
-        Arrays.stream(commands).forEach(command -> scm.register(getPluginMeta().getName(), command));//Register the plugin
-    }
-
-    private void setupSimpleCommandMap() {
-        spm = (SimplePluginManager) this.getServer().getPluginManager();
-        Field f = null;
-        try {
-            f = SimplePluginManager.class.getDeclaredField("commandMap");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        f.setAccessible(true);
-        try {
-            scm = (SimpleCommandMap) f.get(spm);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static SimpleCommandMap getCommandMap() {
-        return scm;
+        Arrays.stream(commands).forEach(command -> {
+            Field commandMapField;
+            CommandMap commandMap = null;
+            try {
+                commandMapField = Bukkit.getServer().getClass().getDeclaredField("commandMap");
+                commandMapField.setAccessible(true);
+                commandMap = (CommandMap) commandMapField.get(Bukkit.getServer());
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+            if (commandMap != null) {
+                commandMap.register(command.getName(), command);
+            }
+        });
     }
 }

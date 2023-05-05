@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class FunCommandRegisterable extends Command implements PluginIdentifiableCommand, FunCommand {
+public abstract class FunCommandRegisterable extends Command implements PluginIdentifiableCommand, FunCommandCore {
     CommandSender sender;//So you can mess with this inside this class
     FundamentalsPlus plugin = FundamentalsPlus.getInstance();
     protected FunCommandRegisterable(String name, String... alias) {

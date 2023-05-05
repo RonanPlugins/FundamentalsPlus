@@ -3,7 +3,7 @@ version: ${project.version}
 name: FundamentalsPlus
 authors:
   - RonanCraft
-  - kristofer
+  - kristoffer
 folia-supported: false
 softdepend:
   - Vault
@@ -12,7 +12,7 @@ api-version: '1.13'
 
 commands:
   fundamentals:
-    aliases: [fp, fplus]
+    aliases: [fp, fplus, fundamentalsplus, fundamental]
     description: Fundamentals core command
 
 permissions:

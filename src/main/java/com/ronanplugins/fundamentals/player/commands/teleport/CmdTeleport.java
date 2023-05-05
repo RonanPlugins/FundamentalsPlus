@@ -97,16 +97,6 @@ public class CmdTeleport extends FunCommandRegisterable {
 
     @Override
     public @NotNull PermissionNode permission() {
-        return PermissionNode.TELEPORT_USE;
-    }
-
-    @Override
-    public String name() {
-        return super.getName();
-    }
-
-    @Override
-    public @NotNull String getName() {
-        return "teleport";
+        return PermissionNode.COMMAND_TELEPORT;
     }
 }

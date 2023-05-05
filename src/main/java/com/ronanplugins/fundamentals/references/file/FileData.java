@@ -26,7 +26,7 @@ public interface FileData {
     default String getString(String path) {
         if (getConfig().isString(path))
             return getConfig().getString(path);
-        return "SOMETHING WENT WRONG";
+        return "REPORT THIS: NO MESSAGE FOR " + path;
     }
 
     default boolean exists(String path) {

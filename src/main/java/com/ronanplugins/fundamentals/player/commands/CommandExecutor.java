@@ -16,36 +16,37 @@ public class CommandExecutor {
         }
     }
 
-    private void registerCommand(FunCommand cmd) {
+    private void registerCommand(FunCommandCore cmd) {
         if (cmd instanceof FunCommandRegisterable)
             FundamentalsPlus.getInstance().registerCommands((FunCommandRegisterable) cmd);
     }
 
-    public void commandExecuted(CommandSender sendi, String label, String[] args) {
+    /*public void commandExecuted(CommandSender sendi, String label, String[] args) {
         if (PermissionNode.USE.check(sendi).isPassed()) {
-            if (args != null && args.length > 0) {
-                for (CommandList cmd : CommandList.values()) {
-                    if (!(cmd.getCmd() instanceof FunCommandRegisterable) && cmd.name().equalsIgnoreCase(args[0])) {
-                        if (cmd.getCmd().permission().check(sendi).isPassed()) {
-                            //FundamentalsPlus.debug(sendi.getName() + " executed: /" + label + " " + String.join(" ", args));
-                            cmd.getCmd().run(sendi, label, args);
-                        } else
-                            MessagesCore.NOPERMISSION.send(sendi, cmd);
-                        return;
-                    }
+            //if (args != null && args.length > 0) {
+            for (CommandList cmd : CommandList.values()) {
+                if (!(cmd.getCmd() instanceof FunCommandRegisterable) && cmd.name().equalsIgnoreCase(args[0])) {
+                    if (cmd.getCmd().permission().check(sendi).isPassed()) {
+                        //FundamentalsPlus.debug(sendi.getName() + " executed: /" + label + " " + String.join(" ", args));
+                        cmd.getCmd().run(sendi, label, args);
+                    } else
+                        MessagesCore.NOPERMISSION.send(sendi, cmd);
+                    return;
                 }
-                MessagesCore.INVALID.send(sendi, label);
-            } else {
+            }
+            MessagesCore.INVALID.send(sendi, label);
+            //} else {
                 //DEFAULT COMMAND IF NONE
                 //RTP_CommandEvent event = new RTP_CommandEvent(sendi, new CmdTeleport());
                 //Bukkit.getServer().getPluginManager().callEvent(event);
                 //if (!event.isCancelled())
                 //    event.getCmd().execute(sendi, label, args);
-            }
+            //}
         } else
             MessagesCore.NOPERMISSION.send(sendi, PermissionNode.USE);
     }
 
+    //Fundamentals Command TabComplete
     public List<String> onTabComplete(CommandSender sendi, String label, String[] args) {
         List<String> list = new ArrayList<>();
         if (args.length == 1) {
@@ -65,5 +66,5 @@ public class CommandExecutor {
             }
         }
         return list;
-    }
+    }*/
 }

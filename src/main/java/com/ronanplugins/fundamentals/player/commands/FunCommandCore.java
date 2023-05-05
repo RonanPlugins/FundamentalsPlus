@@ -6,13 +6,11 @@ import org.bukkit.command.CommandSender;
 import java.util.List;
 
 //Use this interface if a command is support to be listed under CoreCommands and want it to be run under the `/fundamentals <cmd>` command
-public interface FunCommand {
+public interface FunCommandCore {
 
     void run(CommandSender sendi, String label, String[] args);
 
     List<String> tab(CommandSender sendi, String label, String[] args);
 
     PermissionNode permission();
-
-    String name();
 }

@@ -1,7 +1,7 @@
 package com.ronanplugins.fundamentals.references.messages;
 
 import com.ronanplugins.fundamentals.FundamentalsPlus;
-import com.ronanplugins.fundamentals.player.commands.FunCommand;
+import com.ronanplugins.fundamentals.player.commands.FunCommandCore;
 import com.ronanplugins.fundamentals.references.permissions.PermissionCheck;
 import com.ronanplugins.fundamentals.references.permissions.PermissionNode;
 import me.clip.placeholderapi.PlaceholderAPI;
@@ -26,8 +26,8 @@ public class PlaceholderAnalyzer {
             str = biome(str, (Biome) info);
         if (info instanceof World)
             str = world(str, (World) info);
-        if (info instanceof FunCommand)
-            str = cmd(str, (FunCommand) info);
+        if (info instanceof FunCommandCore)
+            str = cmd(str, (FunCommandCore) info);
         if (info instanceof PermissionNode)
             str = permNode(str, (PermissionNode) info);
         if (p instanceof Player)
@@ -98,7 +98,7 @@ public class PlaceholderAnalyzer {
         return str;
     }
 
-    private static String cmd(String str, FunCommand cmd) {
+    private static String cmd(String str, FunCommandCore cmd) {
         if (str.contains(Placeholders.PERMISSION.name))
             str = permNode(str, cmd.permission());
         return str;
