@@ -21,12 +21,8 @@ public class CmdTeleport extends FunCommandRegisterable {
     }
 
     @Override
-    public void run(CommandSender sender, String label, String[] args) {
-        if (!(sender instanceof Player player)) {
-            MessagesCore.TELEPORT_FAILED_CONSOLE.send(sender);
-            return;
-        }
-
+    public void run(CommandSender sendi, String label, String[] args) {
+        Player player = (Player) sendi;
         if (args.length == 0) {
             MessagesCore.INVALID_ARGUMENTS.send(player);
             return;

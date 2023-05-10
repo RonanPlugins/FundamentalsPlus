@@ -26,4 +26,9 @@ public class CmdExample extends FunCommandRegisterable {
     public PermissionNode permission() {
         return null;
     }
+
+    @Override
+    public boolean consoleCanRun() { //OPTIONAL
+        return super.consoleCanRun();
+    }
 }

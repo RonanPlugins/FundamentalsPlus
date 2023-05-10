@@ -13,4 +13,8 @@ public interface FunCommandCore {
     List<String> tab(CommandSender sendi, String label, String[] args);
 
     PermissionNode permission();
+
+    default boolean consoleCanRun() {
+        return true;
+    }
 }

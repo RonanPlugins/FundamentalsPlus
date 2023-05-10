@@ -1,30 +1,26 @@
-package com.ronanplugins.fundamentals.player.commands.fly;
+package com.ronanplugins.fundamentals.player.commands.gamemode;
 
 import com.ronanplugins.fundamentals.player.commands.FunCommandRegisterable;
 import com.ronanplugins.fundamentals.references.messages.MessagesCore;
 import com.ronanplugins.fundamentals.references.permissions.PermissionNode;
+import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CmdFly extends FunCommandRegisterable {
+public class CmdGameModeCreative extends FunCommandRegisterable {
 
-    public CmdFly() {
-        super("fly");
+    public CmdGameModeCreative() {
+        super("gamemodecreative, gmc, gmcreative, gmcre");
     }
 
     @Override
     public void run(CommandSender sendi, String label, String[] args) {
         Player player = (Player) sendi;
-        boolean going_to_fly = !player.isFlying();
-        player.setFlying(going_to_fly);
-        if (going_to_fly) {
-            MessagesCore.FLY_ENABLED.send(sendi);
-        } else {
-            MessagesCore.FLY_DISABLED.send(sendi);
-        }
+        player.setGameMode(GameMode.CREATIVE);
+        MessagesCore.GAMEMODE_SET_CREATIVE.send(sendi);
     }
 
     @Override
@@ -34,6 +30,6 @@ public class CmdFly extends FunCommandRegisterable {
 
     @Override
     public @NotNull PermissionNode permission() {
-        return PermissionNode.COMMAND_FLY;
+        return PermissionNode.COMMAND_GAMEMODE_CREATIVE;
     }
 }

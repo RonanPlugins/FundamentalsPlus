@@ -22,8 +22,8 @@ public enum MessagesCore {
     EDIT_SET("Edit.Set"),
     EDIT_REMOVE("Edit.Remove"),
 
-      //////////////////////
-     //  TELEPORTATION
+    ///////////////////
+    //  TELEPORTATION
     //////////////////
 
     TELEPORT_SUCCESS_PAID("Teleportation.Success.Paid"),
@@ -43,6 +43,20 @@ public enum MessagesCore {
     INVALID_COORDINATES_FORMAT("Teleportation.InvalidCoordinatesFormat"),
     TELEPORTATION_NOT_ALLOWED_WORLD("Teleportation.WorldNotAllowed"),
     TELEPORTATION_NOT_ALLOWED_COORDINATES("Teleportation.CoordinatesNotAllowed"),
+
+    ///////////////////
+    //  FLIGHT
+    //////////////////
+
+    FLY_ENABLED("Fly.Enabled"),
+    FLY_DISABLED("Fly.Disabled"),
+
+    ///////////////////
+    //  GAMEMODE
+    //////////////////
+
+    GAMEMODE_SET_CREATIVE("Gamemode.Creative"),
+    GAMEMODE_SET_SURVIVAL("Gamemode.Survival"),
     ;
 
     final String section;

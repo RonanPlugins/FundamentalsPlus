@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
 
 public class FundamentalsPlus extends JavaPlugin {
     private static FundamentalsPlus instance;
@@ -76,6 +77,10 @@ public class FundamentalsPlus extends JavaPlugin {
         perms.register();
         settings.load();
         commandExecutor.load();
+    }
+
+    public static void debug(Level level, String str) {
+        getInstance().getLogger().log(level, str);
     }
 
     //COMMANDS

@@ -1,9 +1,11 @@
 package com.ronanplugins.fundamentals.player.commands;
 
 import com.ronanplugins.fundamentals.FundamentalsPlus;
+import com.ronanplugins.fundamentals.references.messages.MessagesCore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,23 +13,27 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class FunCommandRegisterable extends Command implements PluginIdentifiableCommand, FunCommandCore {
-    CommandSender sender;//So you can mess with this inside this class
-    FundamentalsPlus plugin = FundamentalsPlus.getInstance();
+
     protected FunCommandRegisterable(String name, String... alias) {
         super(name);
         if (alias != null)
             setAliases(Arrays.asList(alias));
     }
 
-    @Override//Sets the plugin to our plugin so it shows up in /help
+    @Override //Sets the plugin to our plugin, so it shows up in /help
     public @NotNull Plugin getPlugin() {
-        return plugin;
+        return FundamentalsPlus.getInstance();
     }
 
     @Override
-    public boolean execute(@NotNull CommandSender sender, @NotNull String commandLabel, String[] arguments) {
-        this.sender = sender;
-        run(sender, commandLabel, arguments);//actually run the command.
+    public boolean execute(@NotNull CommandSender sendi, @NotNull String label, String[] args) {
+        if (!(sendi instanceof Player) && consoleCanRun())
+            if (permission() == null || permission().check(sendi).isPassed())
+                run(sendi, label, args); //actually run the command.
+            else
+                MessagesCore.NOPERMISSION.send(sendi);
+        else
+            CommandExecutor.consoleCantExecuteMessage(sendi, label);
         return true;
     }
 

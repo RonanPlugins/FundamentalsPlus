@@ -22,3 +22,9 @@ Messages:
     InvalidCoordinatesFormat: '&cInvalid coordinates format. Usage: /tp [player] <targetPlayer|x> [y] [z]'
     WorldNotAllowed: '&cTeleportation is not allowed in this world.'
     CoordinatesNotAllowed: '&cTeleportation to these coordinates is not allowed.'
+  Flight:
+    Enabled: '&aFlight has been enabled, you can now fly!'
+    Disabled: '&cFly mode has been disabled'
+  Gamemode:
+    Survival: '&fGamemode set to &aSurvival'
+    Creative: '&fGamemode set to &cCreative'

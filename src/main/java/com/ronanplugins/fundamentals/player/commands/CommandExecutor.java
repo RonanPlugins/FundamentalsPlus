@@ -10,6 +10,10 @@ import java.util.List;
 
 public class CommandExecutor {
 
+    public static void consoleCantExecuteMessage(CommandSender sendi, String label) {
+        sendi.sendMessage("[ERROR] [FundamentalsPlus] Console cannot execute: /" + label);
+    }
+
     public void load() {
         for (CommandList cmd : CommandList.values()) {
             registerCommand(cmd.getCmd());
