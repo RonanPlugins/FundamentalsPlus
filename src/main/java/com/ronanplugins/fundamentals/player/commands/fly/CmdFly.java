@@ -19,11 +19,15 @@ public class CmdFly extends FunCommandRegisterable {
     public void run(CommandSender sendi, String label, String[] args) {
         Player player = (Player) sendi;
         boolean going_to_fly = !player.isFlying();
+        fly(player, going_to_fly);
+    }
+
+    public static void fly(Player player, boolean going_to_fly) {
         player.setFlying(going_to_fly);
         if (going_to_fly) {
-            MessagesCore.FLY_ENABLED.send(sendi);
+            MessagesCore.FLY_ENABLED.send(player);
         } else {
-            MessagesCore.FLY_DISABLED.send(sendi);
+            MessagesCore.FLY_DISABLED.send(player);
         }
     }
 

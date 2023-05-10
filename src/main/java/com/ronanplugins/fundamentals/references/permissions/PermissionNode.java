@@ -10,6 +10,7 @@ public enum PermissionNode implements PermissionCheck {
     COMMAND_TELEPORT("command.teleport"),
     //Fly
     COMMAND_FLY("command.fly"),
+    JOIN_FLY("join.fly"),
     //Gamemode
     COMMAND_GAMEMODE_CREATIVE("command.gmc"),
     COMMAND_GAMEMODE_SURVIVAL("command.gms"),
